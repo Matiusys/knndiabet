@@ -1,6 +1,10 @@
 import streamlit as st
 import pickle
 
+st.set_page_config(
+    page_title="Klasifikasi Diabetes"
+)
+
 model = pickle.load(open('diabetes.sav','rb'))
 
 st.title("Klasifikasi Diabetes")
@@ -23,8 +27,8 @@ SkinThickness = st.number_input("Masukan data SkinThickness", 0, 50, 10)
 DiabetesPedigreeFunction = st.number_input("Masukan data DiabetesPedigreeFunction", 0.0, 6.2, 3.2)
 
 if st.button("Klasifikasi Diabetes"):
-    diabetes_predict = model.predict([Age, Glucose, Insulin, Pregnancies, BloodPressure, BMI, SkinThickness, DiabetesPedigreeFunction, Outcome])
+    diabetes_predict = model.predict([Age, Glucose, Insulin, Pregnancies, BloodPressure, BMI, SkinThickness, DiabetesPedigreeFunction])
     if (diabetes_predict[0] == 0):
-      st.success = 'Patients Affected by Diabetes '
+       st.success = 'Patients Affected by Diabetes '
     else :
       st.warning = 'Patient is not Affected by Diabetes'
