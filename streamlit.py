@@ -1,7 +1,7 @@
 import streamlit as st
 import pickle
 
-model = pickle.load(open('Diabetes_model.sav','rb'))
+model = pickle.load(open('diabetes_model.sav','rb'))
 
 st.title("Klasifikasi Diabetes")
 
